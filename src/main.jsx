@@ -48,7 +48,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         color: "white"
       }}
       >
-        © {new Date().getFullYear()} by <a href="https://github.com/justintea/Condottiere" target="_blank" rel="noopener noreferrer" style={{ color: "white" }}>Justin Teh</a>
+        © {new Date().getFullYear()} by <a href="https://github.com/justintea/" target="_blank" rel="noopener noreferrer" style={{ color: "white" }}>Justin Teh</a>
       </Footer>
   </React.StrictMode>
 );

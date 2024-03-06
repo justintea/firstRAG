@@ -14,32 +14,7 @@ export default function NavbarOut() {
           Paint-for-Hire
         </Link>
       ),
-    },
-    {
-      key: "paintclasses",
-      label: (
-        <Link to="/paintclasses" className="link">
-          Masterclasses
-        </Link>
-      ),
-    },
-    {
-      key: "assemblyservices",
-      label: (
-        <Link to="/assemblyservices" className="link">
-          Assembly-for-Hire
-        </Link>
-      ),
-    },
-    {
-      key: "FAQ",
-      label: (
-        <Link to="faqs" className="link">
-          FAQs
-        </Link>
-      ),
     }
-
   ];
 
   return (
@@ -47,8 +22,8 @@ export default function NavbarOut() {
       
       <Link to="/">
         <div className="brand">
-          <img src="/0NavBarApplogo/leonAIbrushedited.png" alt="Logo" style={{ width: 50, height: 50 }} />
-          <span className="app-name" >Condotierre</span>
+          <img src="/0NavBarApplogo/robotlogo.gif" alt="Logo" style={{ width: 50, height: 50 }} />
+          <span className="app-name" >GPTstack 1.0</span>
         </div>
       </Link>
 

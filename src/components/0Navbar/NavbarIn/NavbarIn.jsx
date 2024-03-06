@@ -17,30 +17,6 @@ export default function NavbarIn({ user, setUser, orders, setOrders, cart, setCa
           Paint-for-Hire
         </Link>
       ),
-    },
-    {
-      key: "paintclasses",
-      label: (
-        <Link to="/user/paintclasses" className="link">
-          Masterclasses
-        </Link>
-      ),
-    },
-    {
-      key: "assemblyservices",
-      label: (
-        <Link to="/user/assemblyservices" className="link">
-          Assembly-for-Hire
-        </Link>
-      ),
-    },
-    {
-      key: "FAQs",
-      label: (
-        <Link to="/user/faqs" className="link">
-          FAQs
-        </Link>
-      ),
     }
   ];
 
@@ -60,9 +36,9 @@ export default function NavbarIn({ user, setUser, orders, setOrders, cart, setCa
   return (
     <Header theme="light" className="navbar">
       <Link to="" className="brand">
-        <img src="/0NavBarApplogo/leonAIbrushedited.png" alt="Logo" style={{ width: 50, height: 50 }} />
+        <img src="/0NavBarApplogo/robotlogo.gif" alt="Logo" style={{ width: 50, height: 50 }} />
 
-          <span className="app-name">Condotierre</span>
+          <span className="app-name">GPTstack 1.0</span>
 
       </Link>
 
@@ -83,9 +59,6 @@ export default function NavbarIn({ user, setUser, orders, setOrders, cart, setCa
           {user.username.charAt(0).toUpperCase() + user.username.slice(1)}
         </h3>
 
-        <Link to="/user/cart">
-          <Button icon={<ShoppingCartOutlined />}></Button>
-        </Link>
 
         <Link to="/user/info">
           <Button icon={<SettingOutlined />}></Button>

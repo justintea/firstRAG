@@ -1,4 +1,4 @@
-import PaintforhireForm from "../../components/1ServicesPage/1PaintforhireForm/PaintforhireForm";
+import PaintforhireForm from "../../components/1ServicesPage/PrayerInputForm";
 import { Layout, Flex, Carousel, Divider } from "antd";
 const { Sider, Content } = Layout;
 import { Outlet, useOutletContext } from "react-router-dom";
@@ -43,9 +43,6 @@ export default function PaintforhirePage({ user, setUser }) {
         <Layout style={layoutStyle}>
           {/* <Header style={headerStyle}>Header</Header> */}
           <Layout>
-            <Content style={contentStyle}>
-              
-            </Content>
 
             <Sider width="40%" style={siderStyle}>
             <Divider orientation="left" style={{margin: "0px" }}> <h2 style={{ fontFamily: 'Palatino Linotype'}}> Painting Services</h2> </Divider>

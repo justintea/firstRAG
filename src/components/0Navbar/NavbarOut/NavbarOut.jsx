@@ -11,7 +11,7 @@ export default function NavbarOut() {
       key: "paintservices",
       label: (
         <Link to="/paintservices" className="link">
-          Paint-for-Hire
+          x
         </Link>
       ),
     }

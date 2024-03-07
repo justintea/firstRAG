@@ -15,10 +15,6 @@ const addressesRouter = require("./routes/addressesRouter")
 //* openai import
 const OpenAI = require('openai');
 
-//* prayer data prompts import
-const getPrayerData = require('./src/pages/0LandingPage/prayerData.js');
-const prayerData = getPrayerData(); // Call the function to get the prompt data
-
 //* middleware block
 const app = express();
 app.use(logger("dev"));
@@ -37,28 +33,48 @@ app.use("/api/addresses", addressesRouter);
 const openai = new OpenAI({
   // apiKey: process.env.OPENAI_API_KEY
   // apiKey: ''
-  
-});
-console.log('prayerData userPersona', prayerData.userPersona); 
-console.log('prayerData task', prayerData.task); 
-console.log('prayerData todaysVerses', prayerData.todaysVerses); 
-
-app.get('/getResponse', async (req, res) => {
-  const response = await openai.chat.completions.create({
-    model: 'gpt-3.5-turbo',
-    messages: [{
-      'role': 'user',
-      //! prompts
-      'content': `Please write me a prayer, where I am a Christian ${prayerData.userPersona}, to ${prayerData.task}, and if possible, using the Bible verses ${prayerData.todaysVerses}, topics we learned today ${prayerData.todaysLearnings}, and materials we used from today ${prayerData.todaysMaterials}. Kindly ignore 'nil' inputs.`
-
-    }],
-    max_tokens: 300
-  });
-  // console.log(response);
-  console.log(response);
-  console.log(response.choices[0].message);
+  // apiKey: ''
 
 });
+
+//? new code from gpt 
+app.post("/api/sendData", async (req, res) => {
+  try {
+    const { favArtist, favSong, performanceLocation } = req.body;
+
+    const response = await openai.chat.completions.create({
+      model: 'gpt-3.5-turbo',
+      messages: [{
+        'role': 'user',
+        'content': `I am going to a concert, and being a super passionate fan of ${favArtist}, I would like to have an information guide on my concert experience - all the things I should know, have, prepared in advance, in order to enjoy. 
+        5 Specific topics I would like to know:
+        1. Basic information about ${favArtist}, and recent updates or gossip or tensions with media or recording firms. 
+        2. Top 3 most-played songs and top selling (by total sales) album of ${favArtist}.
+        3. When going to ${favArtist}'s concerts, what should I know about? eg. practices from other fans, dressing, exchange of items (what specifically? eg. bracelets), any name the fans are called by, estimated number of fans of ${favArtist} worldwide. Share what is specific to ${favArtist}'s concerts, and avoid sharing general concert etiquette. 
+        4. Interesting facts or details to my favourite song, ${favSong}, who is it for or about, why it was written (elaborate on this more), etc.
+        5. Fun facts about ${favArtist}, facts that most people don't know, eg. does ${favArtist} have any history or past performance at ${performanceLocation} (If the artist has performed at ${performanceLocation} before, indicate the most recent year and month the artist did), recent dating history, does the artist act or engage in other entertainment activites, etc. 
+        As you generate the guide, so summarize the 5 headers, especially number 4.
+        `
+      }],
+      max_tokens: 1200
+    });
+
+    console.log(response);
+    console.log(response.choices[0].message);
+
+    // Send the GPT-3 response back to the frontend or handle it as needed
+
+    res.status(200).json({
+      success: true,
+      message: "Data sent successfully",
+      responseData: response.choices[0].message, // Include the GPT-3 response content
+    });
+  } catch (error) {
+    console.error("Error processing data:", error);
+    res.status(500).json({ success: false, message: "Internal server error" });
+  }
+});
+
 
 //* routes block
 app.get("/api/", (req, res) => {

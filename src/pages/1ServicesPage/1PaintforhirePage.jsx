@@ -1,4 +1,4 @@
-import PaintforhireForm from "../../components/1ServicesPage/PrayerInputForm";
+import ArtistInputForm from "../../components/1ServicesPage/ArtistInputForm";
 import { Layout, Flex, Carousel, Divider } from "antd";
 const { Sider, Content } = Layout;
 import { Outlet, useOutletContext } from "react-router-dom";

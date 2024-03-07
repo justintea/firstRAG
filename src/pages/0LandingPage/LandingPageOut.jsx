@@ -1,23 +1,27 @@
-import NavbarOut from "../../components/0Navbar/NavbarOut/NavbarOut"
-import React from 'react';
-import { Card, Col, Row } from 'antd';
-import { Link } from "react-router-dom";
-import PaintforhireForm from "../../components/1ServicesPage/PrayerInputForm";
-import { Layout, Flex, Divider } from "antd";
+import ArtistInputForm from "../../components/1ServicesPage/ArtistInputForm";
+import { Layout, Flex, Carousel, Divider } from "antd";
 const { Sider, Content } = Layout;
 import { Outlet, useOutletContext } from "react-router-dom";
+import { useState } from "react";
 
-
-
-const { Meta } = Card;
 const contentStyle = {
-  height: '100%',
-  color: '#fff',
-  lineHeight: '1750%',
-  textAlign: 'center',
-  background: 'black',
-  // background: '#364d79',
+  textAlign: "center",
+  minHeight: 570,
+  lineHeight: "120px",
+  // color: '#fff',
+  // backgroundColor: '#0958d9',
+  color: "black",
+  backgroundColor: "#eae8f4",
+  // width: '40%',
+};
 
+const siderStyle = {
+  textAlign: "left",
+  justifyContent: "top",
+  lineHeight: "25px",
+  color: "black",
+  backgroundColor: "white",
+  // width: '60%',
 };
 
 const layoutStyle = {
@@ -27,42 +31,56 @@ const layoutStyle = {
   maxWidth: "calc(100% )",
 };
 
-const siderStyle = {
-  textAlign: "left",
-  justifyContent: "top",
-  lineHeight: "25px",
-  color: "black",
-  backgroundColor: "white",
-};
-
 export default function LandingPageOut() {
   
-  // maybe useeffect
-  // with state change, render prayer 
-  // 1 side form, the other side output 
+  const [responseMessage, setResponseMessage] = useState("");
+
+  const onChange = (currentSlide) => {
+    console.log(currentSlide);
+  };
+
+  useOutletContext();
+
   return (
     <>
-      {/* <h1>Landing Page</h1> */}
-
       <Flex gap="middle" wrap="wrap">
         <Layout style={layoutStyle}>
-          {/* <Header style={headerStyle}>Header</Header> */}
           <Layout>
-          
+            <Content style={contentStyle}>
 
-            <Sider width="40%" style={siderStyle}>
-            <Divider orientation="left" style={{margin: "0px" }}> <h2 style={{ fontFamily: 'Palatino Linotype'}}> Prayer input </h2> </Divider>
+            <Divider orientation="left" style={{ margin: "0px" }}> <h2 style={{ fontFamily: 'Palatino Linotype' }}> Artist input</h2> </Divider>
+                <ArtistInputForm setResponseMessage={setResponseMessage} />
+            </Content>
 
-        
-              <PaintforhireForm  />
+            <Sider width="55%" style={siderStyle}>
+            <Divider orientation="left" style={{margin: "0px" }}> <h2 style={{ fontFamily: 'Palatino Linotype'}}> Key things you need to know before attending the concert</h2> </Divider>
+              {/* <p style={{margin: '0 0 0 2%'}}> insert Json stringify here </p> */}
+              {/* <p style={{margin: '0 0 0 2%'}}> {JSON.stringify(responseMessage.responseData)} </p> */}
+
+                {/* Render the JSON response with formatting */}
+                {/* <pre style={{ margin: '0 0 0 2%' }}>
+                {JSON.stringify(responseMessage.responseData, null, 2)}
+              </pre> */}
+
+              {/* <div style={{ margin: '0 0 0 2%' }}>
+                {responseMessage.responseData && responseMessage.responseData.choices &&
+                  responseMessage.responseData.choices[0] &&
+                  responseMessage.responseData.choices[0].message &&
+                  responseMessage.responseData.choices[0].message.content}
+              </div> */}
+
+              {/* <div style={{ margin: '0 0 0 2%' }}>
+                {responseMessage.responseData && responseMessage.responseData.content}
+              </div> */}
+
+              <div style={{ margin: '0 0 0 2%', whiteSpace: 'pre-wrap' }}>
+    {responseMessage.responseData && responseMessage.responseData.content}
+  </div>
 
             </Sider>
           </Layout>
-          {/* <Footer style={footerStyle}>Footer</Footer> */}
         </Layout>
       </Flex>
-
-
     </>
   );
 }

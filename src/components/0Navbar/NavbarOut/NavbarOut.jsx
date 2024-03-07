@@ -6,34 +6,34 @@ const { Header } = Layout;
 export default function NavbarOut() {
   let page = useLocation().pathname.split("/")[2];
 
-  const items = [
-    {
-      key: "paintservices",
-      label: (
-        <Link to="/paintservices" className="link">
-          x
-        </Link>
-      ),
-    }
-  ];
+  // const items = [
+  //   {
+  //     key: "paintservices",
+  //     label: (
+  //       <Link to="/paintservices" className="link">
+  //         x
+  //       </Link>
+  //     ),
+  //   }
+  // ];
 
   return (
     <Header className="navbar" style={{ backgroundColor: "white" }}>
       
       <Link to="/">
         <div className="brand">
-          <img src="/0NavBarApplogo/robotlogo.gif" alt="Logo" style={{ width: 50, height: 50 }} />
-          <span className="app-name" >GPTstack 1.0</span>
+          <img src="/0NavBarApplogo/partysign.gif" alt="Logo" style={{ width: 50, height: 50 }} />
+          <span className="app-name" >ConcertChampion</span>
         </div>
       </Link>
 
-      <Menu
+      {/* <Menu
         className="menu"
         selectedKeys={page}
         theme="light"
         mode="horizontal"
         items={items}
-      />
+      /> */}
 
       <div className="auth-buttons">
         <Link to="/login">

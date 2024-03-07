@@ -44,7 +44,7 @@ function App() {
             <Route path="/" element={<LandingPageOut user={user} />} />
             <Route path="login"     element={<AuthPage user={user} setUser={setUser} />}      />
             <Route path="signup" element={<SignupPage setUser={setUser} />}     />
-            <Route path="paintservices"   element={<PaintforhirePage user={user} />}      />
+            {/* <Route path="paintservices"   element={<PaintforhirePage user={user} />}      /> */}
 
               
             </Routes>

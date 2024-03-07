@@ -33,7 +33,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       colorSplit: '#bebebe',  //table border lines
       extraColor: '#9dc4bc',  // ?
 
-    }
+        },
+    Divider: {
+      orientationMargin: '0.00',
+      margin: '10',
+  }
   }
 }}>
         <App />

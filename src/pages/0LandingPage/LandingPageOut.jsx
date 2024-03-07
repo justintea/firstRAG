@@ -54,24 +54,6 @@ export default function LandingPageOut() {
 
             <Sider width="55%" style={siderStyle}>
             <Divider orientation="left" style={{margin: "0px" }}> <h2 style={{ fontFamily: 'Palatino Linotype'}}> Key things you need to know before attending the concert</h2> </Divider>
-              {/* <p style={{margin: '0 0 0 2%'}}> insert Json stringify here </p> */}
-              {/* <p style={{margin: '0 0 0 2%'}}> {JSON.stringify(responseMessage.responseData)} </p> */}
-
-                {/* Render the JSON response with formatting */}
-                {/* <pre style={{ margin: '0 0 0 2%' }}>
-                {JSON.stringify(responseMessage.responseData, null, 2)}
-              </pre> */}
-
-              {/* <div style={{ margin: '0 0 0 2%' }}>
-                {responseMessage.responseData && responseMessage.responseData.choices &&
-                  responseMessage.responseData.choices[0] &&
-                  responseMessage.responseData.choices[0].message &&
-                  responseMessage.responseData.choices[0].message.content}
-              </div> */}
-
-              {/* <div style={{ margin: '0 0 0 2%' }}>
-                {responseMessage.responseData && responseMessage.responseData.content}
-              </div> */}
 
               <div style={{ margin: '0 0 0 2%', whiteSpace: 'pre-wrap' }}>
     {responseMessage.responseData && responseMessage.responseData.content}

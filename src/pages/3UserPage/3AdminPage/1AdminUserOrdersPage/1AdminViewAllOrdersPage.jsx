@@ -1,7 +1,3 @@
-//? links
-// /user/admin_userorders_viewall
-//  / user / admin_userorders_updateone
-//  /user/admin_userorders_deleteone
 import { Outlet, useOutletContext } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
 import { getAllOrders } from "../../../../utilities/1ordersService";

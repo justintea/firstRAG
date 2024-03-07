@@ -1,5 +1,4 @@
-# PrayPrompt
+# ConcertChampion
 
-An app that helps people prepare for their connect groups in terms of prayer text, and using input materials generate possible questions to facilitate a connect group's conversation and discussion on religious text.
-
+An app that helps create a concert guide as you see your favourite artist perform live!
 

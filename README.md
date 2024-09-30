@@ -1,4 +1,5 @@
-# 🤘🏻ConcertChampion
+# 🤖 my first RAG app
 
-An app that helps create a concert guide as you see your favourite artist perform live!
+Building on previous work, my first try at creating a RAG-powered LLM app!
+
 
